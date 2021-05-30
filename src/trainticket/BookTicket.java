@@ -71,61 +71,67 @@ public class BookTicket extends Datas
         From = sc.nextLine();
         System.out.println("To Location");
         To = sc.nextLine(); 
+        
         if(From.length()==0 || To.length()==0)
         {
             System.out.println("You doesn't mension your boarding point or destination point");
         }
-        else
+        else 
         {
-            
-            for(int i=0;i<count;i++)
+            int f=0;
+            if("ABCD".contains(From) && "BCDE".contains(To) && count>(8-train1.size())+(2-waiting1.size()))
             {
-                pas=new ArrayList<>();
-                pas.add(tc);
-                System.out.println("Passanger Name");
-                Name =sc.nextLine();
-                if("ABCD".contains(From) && "BCDE".contains(To))
+                System.out.println("Ticket is Not Available");f=1;
+            }
+            
+            if("XY".contains(From) && ("DE").contains(To) && (count>(8-train1.size())+(2-waiting1.size()) || count>(8-train2.size())+(2-waiting2.size())))
+            {
+                System.out.println("Ticket is Not Available");f=1;
+            }
+            
+            if("XY".contains(From) && ("YC").contains(To) && count>(8-train2.size())+(2-waiting2.size()))
+            {
+                System.out.println("Ticket is Not Available");f=1;
+            }
+            
+            if(f==0)
+            {
+                for(int i=0;i<count;i++)
                 {
-                    if((count-i)>(8-train1.size())+(2-waiting1.size()))
+                    pas=new ArrayList<>();
+                    pas.add(tc);
+                    System.out.println("Passanger Name");
+                    Name =sc.nextLine();
+                    if("ABCD".contains(From) && "BCDE".contains(To))
                     {
-                        System.out.println("Ticket is Not Available");
-                        break;
-                    }
-                    pas.add(1);
-                    pas.add(From);
-                    pas.add(To);
-                    pas.add(Name);
-                    System.out.println("\nEnter SeatNo in Train1");
-                    booking(train1,chart1,waiting1,waitchart1,pas);
-                    tr1=1; 
-                }
-                else if("XY".contains(From))
-                { 
-                    if((count-i)>(8-train2.size())+(2-waiting2.size()))
-                    {
-                        System.out.println("Ticket is Not Available");
-                        break;
-                    }
-                    if("YCDE".contains(To))
-                    {
-                        pas.add(2);
+                        pas.add(1);
                         pas.add(From);
-                        if(To.equals("Y"))
-                            pas.add(To);
-                        else 
-                            pas.add("C");
+                        pas.add(To);
                         pas.add(Name);
-                        System.out.println("\nEnter SeatNo in Train2");
-                        booking(train2,chart2,waiting2,waitchart2,pas);   
-                        tr2=1;
+                        System.out.println("\nEnter SeatNo in Train1");
+                        booking(train1,chart1,waiting1,waitchart1,pas);
+                        tr1=1; 
                     }
-                    if("DE".contains(To))
-                    {
-                        pas=new ArrayList<>();
-                        if(count(chart1)!=8 || waiting1.size()<1)
-                        { 
-                            pas.add(1);
+                    else if("XY".contains(From))
+                    { 
+                        if("YCDE".contains(To))
+                        {
+                            pas.add(2);
+                            pas.add(From);
+                            if(To.equals("Y"))
+                                pas.add(To);
+                            else 
+                                pas.add("C");
+                            pas.add(Name);
+                            System.out.println("\nEnter SeatNo in Train2");
+                            booking(train2,chart2,waiting2,waitchart2,pas);   
+                            tr2=1;
+                        }
+                        if("DE".contains(To))
+                        {
+                            pas=new ArrayList<>();
                             pas.add(tc);
+                            pas.add(1);
                             pas.add("C");
                             pas.add(To);
                             pas.add(Name);
@@ -133,25 +139,27 @@ public class BookTicket extends Datas
                             booking(train1,chart1,waiting1,waitchart1,pas);
                             tr1=1;
                         }
-                        else
-                        {
-                            System.out.println("Train1 is Not Available");
-                        }
                     }
-                }
-                else
-                {
-                    System.out.println("Route is not Available");tc-=1;
-                    break;
+                    else
+                    {
+                        System.out.println("Route is not Available");tc-=1;
+                        break;
+                    }
                 }
             }
         }
-        if(tr1!=0 && tr2!=0)
+        //System.out.printf("%d %d",tr1,tr2);
+        if(tr1!=0 || tr2!=0)
+        {
             System.out.println("\nBookTicket Successfully\n");
+        }
         if(tr1==1)
+        {
             View.printTicket(tc,train1,waiting1);
-        
+        }
         if(tr2==1)
+        {
             View.printTicket(tc,train2,waiting2);
+        }
     }
 }

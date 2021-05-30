@@ -14,6 +14,7 @@ public class CancelTicket extends Datas
         
         while(wcind<waiting.size())
         {
+            
             if((int)waiting.get(wcind).get(0)==pnr)
             {
                 ArrayList t=waiting.get(0);
@@ -22,7 +23,6 @@ public class CancelTicket extends Datas
                 f+=1;
                 waitchart.remove(wcind);
                 wcind--;
-                //System.out.println("your Ticket Cancelled Successfully");
             }
             wcind++;
         }
@@ -32,7 +32,6 @@ public class CancelTicket extends Datas
             if((int)train.get(ind).get(0)==pnr)
             {
                 ArrayList t=train.get(ind);
-                //System.out.printf("From :%s\nTo :%s\nPNR Number is :%d\tTrain No is:%d\nPassanger Name is :%s\tSeat Number: %d\n****Status : Cancelled****\n",train.get(ind).get(2),train.get(ind).get(3),train.get(ind).get(0),train.get(ind).get(1),train.get(ind).get(4),train.get(ind).get(5));
                 System.out.printf("From :%s\nTo :%s\nPNR Number is :%d\tTrain No is:%d\nPassanger Name is :%s\tSeat Number: %d\n****Status : Cancel****\n",t.get(2),t.get(3),t.get(0),t.get(1),t.get(4),t.get(5));
                 int index=(int)train.get(ind).get(5);
                 chart[index-1]=0;
@@ -45,10 +44,12 @@ public class CancelTicket extends Datas
                     train.add(ind,waiting.get(0)); 
                     waiting.remove(0); 
                     waitchart.remove(0);
-                    chart[index]=1;
+                    chart[index-1]=1;
                 }  
                 else
+                {
                     ind--;
+                }
             }
             ind++;
         }
