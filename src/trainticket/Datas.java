@@ -17,7 +17,8 @@ public class Datas
   
     protected static int tc=0;
 
-    public void method()
+    //it's used to admin show the detalis of passanger 
+    /*public void method()
     {
         for(ArrayList t:train1)
             System.out.println(t);
@@ -27,6 +28,6 @@ public class Datas
             System.out.println(t);
         for(ArrayList t:waiting2)
             System.out.println("Waiting List 2 Details"+t);
-    }
+    }*/
     
 }
