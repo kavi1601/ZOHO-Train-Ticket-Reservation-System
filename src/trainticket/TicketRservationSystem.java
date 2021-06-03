@@ -16,13 +16,13 @@ public class TicketRservationSystem
             int choice=sc.nextInt();
             switch(choice)
             {
-                case 1 ->new BookTicket().bookTicket(); 
+                case 1: {new BookTicket().bookTicket();break;} 
                 
-                case 2 ->new CancelTicket().cancelTicket(); 
+                case 2: {new CancelTicket().cancelTicket(); break;}
                 
-                case 3 -> new View().method();
+                case 3: {new View().method();break;}
                 
-                case 4 -> System.exit(0);
+                case 4: {System.exit(0);}
                 
                 //it's used to admin show the detalis of passanger 
                 //u can remove the command line in datas.java also
