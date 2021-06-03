@@ -22,11 +22,11 @@ public class Datas
         for(ArrayList t:train1)
             System.out.println(t);
         for(ArrayList t:waiting1)
-            System.out.println("Waiting List Details "+t);
+            System.out.println("Waiting List 1 Details "+t);
         for(ArrayList t:train2)
             System.out.println(t);
         for(ArrayList t:waiting2)
-            System.out.println("Details"+t);
+            System.out.println("Waiting List 2 Details"+t);
     }
     
 }
