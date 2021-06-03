@@ -28,7 +28,7 @@ public class TicketRservationSystem
                 //u can remove the command line in datas.java also
                 //case 5-> new Datas().method(); 
                 
-                default -> {break;}
+                default: {break;}
             }
         }
     }
