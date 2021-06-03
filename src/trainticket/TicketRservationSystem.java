@@ -24,7 +24,9 @@ public class TicketRservationSystem
                 
                 case 4 -> System.exit(0);
                 
-                case 5-> new Datas().method(); 
+                //it's used to admin show the detalis of passanger 
+                //u can remove the command line in datas.java also
+                //case 5-> new Datas().method(); 
                 
                 default -> {break;}
             }
