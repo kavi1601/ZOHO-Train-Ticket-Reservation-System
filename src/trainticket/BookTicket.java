@@ -79,6 +79,11 @@ public class BookTicket extends Datas
         else 
         {
             int f=0;
+            if(From.equals(To))
+            {
+                System.out.println("Route is not Available");tc-=1;
+                f=1;
+            }
             if("ABCD".contains(From) && "BCDE".contains(To) && count>(8-train1.size())+(2-waiting1.size()))
             {
                 System.out.println("Ticket is Not Available");f=1;
@@ -140,6 +145,7 @@ public class BookTicket extends Datas
                             tr1=1;
                         }
                     }
+                    
                     else
                     {
                         System.out.println("Route is not Available");tc-=1;
