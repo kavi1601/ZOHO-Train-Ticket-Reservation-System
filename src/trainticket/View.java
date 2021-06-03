@@ -32,7 +32,6 @@ public class View extends Datas
         }             
     }
     
-    @Override
     public void method()
     {
         System.out.println("1:Occupancy Chart OR 2:Print Ticket");
